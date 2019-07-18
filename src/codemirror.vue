@@ -115,7 +115,9 @@
             this.$emit('input', this.content)
           }
         })
-
+        this.cminstance.on('cursorActivity', cm => {
+            this.$emit('cursorActivity', this.codemirror)
+        })
         // 所有有效事件（驼峰命名）+ 去重
         const tmpEvents = {}
         const allEvents = [
